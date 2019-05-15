@@ -1,0 +1,360 @@
+body {
+    margin: 0;
+    background: lightgray;
+}
+
+body::-webkit-scrollbar {
+    width: 1em;
+}
+
+body::-webkit-scrollbar-track {
+    -webkit-box-shadow: inset 0 0 6px rgba(0, 0, 0, 0.3);
+}
+
+body::-webkit-scrollbar-thumb {
+    background-color: darkgrey;
+    outline: 1px solid slategrey;
+}
+
+a {
+    color: white;
+}
+
+a:hover {
+    color: white;
+    text-decoration: none;
+}
+
+.titleContainer {
+    font-family: "Oswald", sans-serif;
+    margin: 2rem;
+    text-align: center;
+}
+
+#title {
+    display: inline;
+    border-bottom: 0.125rem solid #920037;
+    color: rgb(4, 4, 63);
+    font-size: 4rem;
+}
+
+.navButtons {
+    margin: 3rem;
+    display: flex;
+    flex-flow: row wrap;
+    justify-content: space-evenly;
+}
+
+@supports (-ms-ime-align: auto) {
+    .navButtons {
+        justify-content: space-around;
+    }
+}
+
+.navButton {
+    width: 18.75rem;
+    padding: 0.5rem 0.5rem;
+    border: 0.125rem solid #343a40;
+    border-radius: 0.3125rem;
+    background: #343a40;
+    color: white;
+    font-size: 2.1rem;
+    font-family: "Raleway", sans-serif;
+    text-transform: uppercase;
+    -webkit-transition: 1s;
+    -moz-transition: 1s;
+    transition: 1s;
+}
+
+.navButton:hover {
+    -webkit-transform: scale(1.15);
+    -moz-transform: scale(1.15);
+    transform: scale(1.15);
+    background: rgba(167, 32, 14, 0.85);
+}
+
+.introShowWheel {
+    display: flex;
+    justify-content: center;
+}
+
+.slide {
+    width: 90vw;
+    border: 0.8rem solid white;
+}
+
+.introContainer {
+    font-family: "Oswald", sans-serif;
+    margin: 3.25vw 5vw;
+    display: flex;
+    flex-flow: column wrap;
+}
+
+.introText {
+    margin: 3vw 0;
+    text-align: justify;
+    font-size: 2.1rem;
+}
+
+.outro {
+    font-weight: bold;
+}
+
+.values {
+    display: flex;
+    flex-flow: column nowrap;
+    justify-content: center;
+    height: 50rem;
+    margin: 3.25vw 5vw;
+    background: rgba(255, 255, 255, 0.15);
+}
+
+.valueIcons {
+    display: flex;
+    flex-flow: row wrap;
+    justify-content: space-around;
+    font-family: "Oswald", sans-serif;
+}
+
+.icon {
+    text-align: center;
+}
+
+.iconText {
+    font-size: 2.1rem;
+}
+
+.services {
+    margin: 3.25vw 5vw;
+    display: flex;
+    flex-flow: row wrap;
+    justify-content: center;
+    font-family: "Oswald", sans-serif;
+}
+
+.service {
+    margin: 2.08vw;
+    padding: 5.2vw;
+    background: black;
+    color: white;
+    text-align: center;
+    font-size: 2.1rem;
+    text-transform: uppercase;
+    -webkit-transition: 1s;
+    -moz-transition: 1s;
+    transition: 1s;
+}
+
+.service:hover {
+    -webkit-transform: rotate(2deg);
+    -moz-transform: rotate(2deg);
+    transform: rotate(2deg);
+}
+
+.map-responsive {
+    margin: 3.25vw 5vw;
+    padding-bottom: 56.25%;
+    position: relative;
+    height: 0;
+}
+
+.map-responsive iframe {
+    left: 0;
+    top: 0;
+    height: 100%;
+    width: 100%;
+    position: absolute;
+}
+
+#menuButton {
+    position: fixed;
+    -webkit-box-shadow: 0 0 0.7rem 0 rgba(0, 0, 0, 0.8);
+    -moz-box-shadow: 0 0 0.7rem 0 rgba(0, 0, 0, 0.8);
+    box-shadow: 0 0 0.7rem 0 rgba(0, 0, 0, 0.8);
+    overflow: hidden;
+    border-radius: 3.125rem;
+    bottom: 5.25rem;
+    right: 1.25rem;
+    height: 3.125rem;
+    background-color: rgba(0, 0, 0, 0.521);
+    cursor: pointer;
+    text-align: center;
+}
+
+#contactButton {
+    position: fixed;
+    z-index: 101;
+    -webkit-box-shadow: 0 0 0.7rem 0 rgba(0, 0, 0, 0.8);
+    -moz-box-shadow: 0 0 0.7rem 0 rgba(0, 0, 0, 0.8);
+    box-shadow: 0 0 0.7rem 0 rgba(0, 0, 0, 0.8);
+    border-radius: 3.125rem;
+    -webkit-transition: width 0.25s, opacity 0.25s;
+    -moz-transition: width 0.25s, opacity 0.25s;
+    transition: width 0.25s, opacity 0.25s;
+    bottom: 1.25rem;
+    right: 1.25rem;
+    height: 3.125rem;
+    background-color: rgba(167, 32, 14, 0.85);
+    cursor: pointer;
+    text-align: center;
+}
+
+.hide-label {
+    width: 3.125rem !important;
+}
+
+#contactIcon {
+    font-size: 2rem;
+}
+
+#menuIcon {
+    font-size: 2rem;
+}
+
+.blur {
+    -ms-filter: blur(1.3rem);
+    -webkit-filter: blur(1.3rem);
+    -moz-transition: blur(1.3rem);
+    -webkit-filter: blur(1.3rem);
+    filter: blur(1.3rem);
+}
+
+.modalBox {
+    position: fixed;
+    display: none;
+    padding: 2rem;
+    overflow-y: auto;
+    background: rgba(255, 255, 255, 0.548);
+    -webkit-box-shadow: 0 0 2rem 0 rgba(0, 0, 0, 0.8);
+    -moz-box-shadow: 0 0 2rem 0 rgba(0, 0, 0, 0.8);
+    box-shadow: 0 0 2rem 0 rgba(0, 0, 0, 0.8);
+    font-family: "Raleway", sans-serif;
+    font-size: 1.5rem;
+    color: black;
+}
+
+.modalBox::-webkit-scrollbar {
+    width: 0.5rem;
+}
+
+.modalBox::-webkit-scrollbar-track {
+    -webkit-box-shadow: inset 0 0 0.5rem rgba(0, 0, 0, 0.3);
+}
+
+.modalBox::-webkit-scrollbar-thumb {
+    background-color: rgba(167, 32, 14, 0.85);
+    outline: 1px solid slategrey;
+}
+
+.boxClose {
+    margin: 0.83vw 0;
+    padding: 0.5rem;
+    border: 0.1rem solid #343a40;
+    background: #343a40;
+    color: white;
+    -webkit-transition: 1s;
+    -moz-transition: 1s;
+    transition: 1s;
+}
+
+.boxClose:hover {
+    -webkit-transform: scale(1.15);
+    -moz-transform: sclae(1.15);
+    transform: scale(1.15);
+    background: rgba(167, 32, 14, 0.85);
+}
+
+.officeInfo {
+    display: flex;
+    flex-flow: row wrap;
+    justify-content: center;
+}
+
+.officeInfo p {
+    font-family: "Raleway", sans-serif;
+    margin-right: 1rem;
+    color: #343a406e;
+}
+
+#imprint {
+    color: #343a406e;
+}
+
+#imprint:hover {
+    color: white;
+}
+
+.designer {
+    text-align: center;
+    color: #343a406e;
+    font-size: 0.7rem;
+}
+
+.designer a {
+    color: #343a406e;
+}
+
+.designer a:hover {
+    color: white;
+}
+
+@media only screen and (min-width: 700px) {
+    .navButton {
+        margin: 0.3rem;
+    }
+    .modalBox {
+        width: 80vw;
+        height: 50vh;
+        top: 25vh;
+        right: 10vw;
+        font-size: 1.5rem;
+    }
+}
+
+@media only screen and (max-width: 600px) {
+    #title {
+        font-size: 2rem;
+    }
+    .navButtons {
+        margin: 1.5rem;
+        flex-flow: column wrap;
+        align-items: center;
+    }
+    .navButton {
+        width: 100%;
+        margin: 0.1rem;
+        padding: 0.5rem 0.5rem;
+        font-size: 1rem;
+    }
+    .introHeading h1 {
+        font-size: 1.5rem;
+    }
+    .introText {
+        margin: 3rem 0;
+        font-size: 1rem;
+    }
+    .valueIcons {
+        flex-flow: column wrap;
+    }
+    .icon {
+        margin-bottom: 2rem;
+    }
+    .iconText {
+        font-size: 1rem;
+    }
+    .services {
+        flex-flow: column wrap;
+    }
+    .service {
+        margin-left: 0;
+        margin-right: 0;
+        font-size: 1rem;
+    }
+    .modalBox {
+        width: 80vw;
+        height: 50vh;
+        top: 25vh;
+        right: 10vw;
+        font-size: 1rem;
+    }
+}
