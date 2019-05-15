@@ -357,4 +357,8 @@ a:hover {
         right: 10vw;
         font-size: 1rem;
     }
+    .officeInfo {
+        flex-flow: column wrap;
+        justify-content: center;
+    }
 }
