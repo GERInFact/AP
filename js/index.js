@@ -13,6 +13,7 @@ const wagesBox = document.querySelector("#wages");
 const auxiliariesBox = document.querySelector("#auxiliaries");
 const dataProtectionBox = document.querySelector("#dataProtection");
 const btnBoxClose = document.querySelector(".boxClose");
+const quickClose = document.querySelector("#quickClose");
 
 class ContentManager {
     constructor() {
@@ -82,6 +83,7 @@ const service = new ServiceManager();
 setInterval(() => content.toggleMenuButton(content.isIntroTextAtTop()), 1);
 emailButton.addEventListener("click", () => content.toggleMailBox());
 btnBoxClose.addEventListener("click", () => content.toggleModalBox());
+quickClose.addEventListener("click", () => content.toggleModalBox());
 
 fiscalAdviceBox.addEventListener("click", () => service.displayDetails(`STEUERBERATUNG
 
