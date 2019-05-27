@@ -454,4 +454,13 @@ a:hover {
         flex-flow: column wrap;
         align-items: center;
     }
+    .mailBox {
+        width: 17.5rem;
+    }
+    #clientMailAddress {
+        width: 17.2rem;
+    }
+    #emailText {
+        width: 17.2rem;
+    }
 }
