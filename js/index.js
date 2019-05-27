@@ -19,7 +19,7 @@ const mailBox = document.querySelector(".mailBox");
 class ContentManager {
   constructor() {
     this.isEmailBoxActive = false;
-    this.isModalBoxActive = false;
+    this.isModalBoxActive = true;
   }
 
   toggleMailBox() {
