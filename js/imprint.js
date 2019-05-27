@@ -66,5 +66,5 @@ Es gelten die gesetzlichen Copyright-Bestimmungen.
 
 Programmed & designed by
 Marcel-André Hille
-marédesign@gmail.com
+maredesign.founder@gmail.com
 `;

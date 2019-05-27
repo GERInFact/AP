@@ -14,78 +14,86 @@ const auxiliariesBox = document.querySelector("#auxiliaries");
 const dataProtectionBox = document.querySelector("#dataProtection");
 const btnBoxClose = document.querySelector(".boxClose");
 const quickClose = document.querySelector("#quickClose");
+const mailBox = document.querySelector(".mailBox");
 
 class ContentManager {
-    constructor() {
-        this.isEmailBoxActive = true;
-        this.isModalBoxActive = false;
+  constructor() {
+    this.isEmailBoxActive = false;
+    this.isModalBoxActive = false;
+  }
 
-    }
+  toggleMailBox() {
+    emailButton.classList.toggle("hide-label");
+    this.isEmailBoxActive = !this.isEmailBoxActive;
+    this.setMenuDisplaySetting();
+    if (this.isEmailBoxActive) this.showMailBox();
+    else this.hideMailBox();
+  }
 
-    toggleMailBox() {
-        emailButton.classList.toggle('hide-label');
-        this.isEmailBoxActive = !this.isEmailBoxActive;
-        this.setMenuDisplaySetting();
-    }
+  showMailBox() {
+    mailBox.style = "display:flex";
+  }
 
-    setMenuDisplaySetting() {
-        menuButton.style.display = this.getDisplaySetting(this.isEmailBoxActive);
-    }
+  hideMailBox() {
+    mailBox.style = "display:none";
+  }
 
-    getDisplaySetting(condition) {
-        if (typeof condition !== "boolean") throw Error("Parameter is not a boolean.");
+  setMenuDisplaySetting() {
+    menuButton.style.display = this.getDisplaySetting(this.isEmailBoxActive);
+  }
 
-        return condition ? "block" : "none";
-    }
+  getDisplaySetting(condition) {
+    if (typeof condition !== "boolean")
+      throw Error("Parameter is not a boolean.");
 
-    toggleModalBox() {
-        this.isModalBoxActive = !this.isModalBoxActive;
-        modalBox.style.display = this.getDisplaySetting(this.isModalBoxActive);
-        modalBox.scrollTop = 0;
-        mainPage.classList.toggle('blur');
+    return condition ?"none" :  "block";
+  }
 
-    }
+  toggleModalBox() {
+    this.isModalBoxActive = !this.isModalBoxActive;
+    modalBox.style.display = this.getDisplaySetting(this.isModalBoxActive);
+    modalBox.scrollTop = 0;
+    mainPage.classList.toggle("blur");
+  }
 
-    toggleMenuButton(condition) {
+  toggleMenuButton(condition) {
+    if (typeof condition !== "boolean")
+      throw Error("Parameter is not a boolean.");
 
-        if (typeof condition !== "boolean") throw Error("Parameter is not a boolean.");
+    this.setMenuButtonVisibility(condition);
+  }
 
-        this.setMenuButtonVisibility(condition);
-    }
+  setMenuButtonVisibility(condition) {
+    if (condition) menuButton.style.visibility = "visible";
+    else menuButton.style.visibility = "hidden";
+  }
 
-    setMenuButtonVisibility(condition) {
-        if (condition)
-            menuButton.style.visibility = "visible";
-        else
-            menuButton.style.visibility = "hidden";
-    }
-
-    isIntroTextAtTop() {
-        return window.pageYOffset >= intro.offsetTop - window.pageYOffset * 0.1;
-    }
-
+  isIntroTextAtTop() {
+    return window.pageYOffset >= intro.offsetTop - window.pageYOffset * 0.1;
+  }
 }
 
-
 class ServiceManager {
-    constructor() {}
+  constructor() {}
 
-    displayDetails(infoText, callBack) {
-        callBack();
-        boxText.innerText = infoText;
-    }
-
+  displayDetails(infoText, callBack) {
+    callBack();
+    boxText.innerText = infoText;
+  }
 }
 
 const content = new ContentManager();
 const service = new ServiceManager();
 
+content.hideMailBox();
 setInterval(() => content.toggleMenuButton(content.isIntroTextAtTop()), 1);
 emailButton.addEventListener("click", () => content.toggleMailBox());
 btnBoxClose.addEventListener("click", () => content.toggleModalBox());
 quickClose.addEventListener("click", () => content.toggleModalBox());
 
-fiscalAdviceBox.addEventListener("click", () => service.displayDetails(`STEUERBERATUNG
+fiscalAdviceBox.addEventListener("click", () =>
+  service.displayDetails(
+    `STEUERBERATUNG
 
 Wir beraten unsere Mandanten in allen steuerlichen Fragen, helfen ihnen bei der steuerlichen Gestaltung von unternehmerischen Entscheidungen und unterstützen sie bei rechtlichen Vorgängen.
 
@@ -100,9 +108,14 @@ III. Vertretung gegenüber der Finanzbehörde, Teilnahme an Betriebsprüfungen u
 IV. Beratung bei Existenzgründung, Unternehmensnachfolge, Wahl der Rechtsform und Unternehmensumstrukturierung / Umwandlung
 
 V. Steuerliche Gestaltung bei Erbangelegenheiten.
-`, () => content.toggleModalBox()));
+`,
+    () => content.toggleModalBox()
+  )
+);
 
-agriculturalTerminalBox.addEventListener("click", () => service.displayDetails(`LANDWIRTSCHAFTLICHE BUCHSTELLE
+agriculturalTerminalBox.addEventListener("click", () =>
+  service.displayDetails(
+    `LANDWIRTSCHAFTLICHE BUCHSTELLE
 
 Unser Spezialgebiet ist die Betreuung landwirtschaftlicher Betriebe mit ihren zahlreichen steuerlichen und betriebswirtschaftlichen Besonderheiten.
 
@@ -119,10 +132,14 @@ IV. Grundstücksverkehrsrecht
 V. Nachfolgeregelung
 
 VI. Betriebswirtschaftliche Spezialberatung
-`, () => content.toggleModalBox()));
+`,
+    () => content.toggleModalBox()
+  )
+);
 
-
-consultingBox.addEventListener("click", () => service.displayDetails(`UNTERNEHMENSBERATUNG
+consultingBox.addEventListener("click", () =>
+  service.displayDetails(
+    `UNTERNEHMENSBERATUNG
 
 Wir unterstützen und beraten unsere Mandanten bei Unternehmenskäufen, Vergrößerungen oder Umstrukturierungen, Finanzierungs- und betriebswirtschaftlichen Fragen.
 
@@ -137,9 +154,14 @@ III. Strategie- und Organisationsberatung
 IV. Hilfestellung bei Liquiditätsplanung und Kostenkontrolle
 
 V. wirtschaftliche Beratung bei Kauf und Verkauf von Unternehmen
-`, () => content.toggleModalBox()));
+`,
+    () => content.toggleModalBox()
+  )
+);
 
-annualAccounts.addEventListener("click", () => service.displayDetails(`JAHRESABSCHLUSS
+annualAccounts.addEventListener("click", () =>
+  service.displayDetails(
+    `JAHRESABSCHLUSS
 
 Wir erstellen Jahresabschlüsse und Gewinnermittlungen für Unternehmen aller Branchen und Rechtsformen.
 
@@ -150,9 +172,14 @@ I. Handelsrechtliche Jahresabschlüsse ohne und mit Plausibilitätsbeurteilung
 II. Steuerbilanzen, E-Bilanzen
 
 III. Einnahmen-Überschussrechnungen
-`, () => content.toggleModalBox()));
+`,
+    () => content.toggleModalBox()
+  )
+);
 
-accountingBox.addEventListener("click", () => service.displayDetails(`BUCHHALTUNG
+accountingBox.addEventListener("click", () =>
+  service.displayDetails(
+    `BUCHHALTUNG
 
 Wir übernehmen für unsere Mandanten Teilbereiche des Rechnungswesens, aber 
 auch die komplette Abwicklung der Buchhaltung – von der Überweisung bis hin zur
@@ -167,9 +194,14 @@ II. komplette Finanzbuchführung mit Standard- und branchenspezifischen Auswertu
 III. Kostenkontrolle, Erfolgskontrolle, Frühwarnsystem
 
 IV. Überprüfung der Buchführung inkl. Mitarbeiterschulung
-`, () => content.toggleModalBox()));
+`,
+    () => content.toggleModalBox()
+  )
+);
 
-wagesBox.addEventListener("click", () => service.displayDetails(`LÖHNE
+wagesBox.addEventListener("click", () =>
+  service.displayDetails(
+    `LÖHNE
 
 Wir übernehmen für unsere Mandanten die Lohn- und Gehaltsabrechnung.
 
@@ -182,9 +214,14 @@ II. Meldungen, Bescheinigungen und Anträge
 III. Beratung bei Vergütung und Lohnzusatzleistungen
 
 IV. Teilnahme bei Prüfungen durch Finanzbehörden und Sozialversicherungsträger
-`, () => content.toggleModalBox()));
+`,
+    () => content.toggleModalBox()
+  )
+);
 
-auxiliariesBox.addEventListener("click", () => service.displayDetails(`SONSTIGE BERATUNG
+auxiliariesBox.addEventListener("click", () =>
+  service.displayDetails(
+    `SONSTIGE BERATUNG
 
 I. Unternehmensnachfolge
 
@@ -193,9 +230,14 @@ II. Umlegungsverfahren, Grundstückskauf und -verkauf
 III- Prüfung von Gesellschaftsverträgen hinsichtlich steuerlicher Aspekte
 
 IV. Sanierungsberatung
-`, () => content.toggleModalBox()));
+`,
+    () => content.toggleModalBox()
+  )
+);
 
-dataProtectionBox.addEventListener("click", () => service.displayDetails(`DATENSCHUTZ
+dataProtectionBox.addEventListener("click", () =>
+  service.displayDetails(
+    `DATENSCHUTZ
 1. Name und Kontaktdaten des Verantwortlichen
 Diese Datenschutzerklärung informiert über die Verarbeitung personenbezogener Daten auf der Kanzleiwebseite von:
 Verantwortlicher: Alber & Pfindel Steuerberatungsgesellschaft Part GmbB, Am Fleinsbach 9, 70794 Filderstadt, kanzlei@alber-pfindel.de, fon 0711-7225610, fax 0711-7225623
@@ -296,4 +338,7 @@ Wenn Sie der Ansicht sind, dass die Verarbeitung der Sie betreffenden personenbe
 
 7. Stand und Aktualisierung dieser Datenschutzerklärung
 Diese Datenschutzerklärung hat den Stand vom 25.Mai 2018. Wir behalten uns vor, die Da-tenschutzerklärung zu gegebener Zeit zu aktualisieren, um den Datenschutz zu verbessern und/oder an geänderte Behördenpraxis oder Rechtsprechung anzupassen.
-`, () => content.toggleModalBox()));
+`,
+    () => content.toggleModalBox()
+  )
+);
