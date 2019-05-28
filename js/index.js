@@ -50,6 +50,7 @@ class ContentManager {
   }
 
   toggleModalBox() {
+    if(this.isEmailBoxActive) this.toggleMailBox();
     this.isModalBoxActive = !this.isModalBoxActive;
     modalBox.style.display = this.getDisplaySetting(this.isModalBoxActive);
     modalBox.scrollTop = 0;
