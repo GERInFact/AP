@@ -45,8 +45,8 @@ a:hover {
 }
 
 .titleContainer {
-    font-family: "Oswald", sans-serif;
-    margin: 2rem;
+    font-family: 'Merriweather', serif;
+    margin: 3rem;
     text-align: center;
 }
 
@@ -54,7 +54,7 @@ a:hover {
     display: inline;
     border-bottom: 0.125rem solid #920037;
     color: rgb(4, 4, 63);
-    font-size: 4rem;
+    font-size: 4.5rem;
 }
 
 .navButtons {
@@ -74,12 +74,14 @@ a:hover {
     width: 18.75rem;
     padding: 0.5rem 0.5rem;
     border: 0.125rem solid #343a40;
-    border-radius: 0.3125rem;
     background: #343a40;
     color: white;
     font-size: 2.1rem;
-    font-family: "Raleway", sans-serif;
+    font-family: 'Montserrat', sans-serif;
     text-transform: uppercase;
+    -webkit-box-shadow: .3rem .3rem .3rem rgba(0, 0, 0, 0.349);
+    -moz-box-shadow: .3rem .3rem .3rem rgba(0, 0, 0, 0.349);
+    box-shadow: .3rem .3rem .3rem rgba(0, 0, 0, 0.349);
     -webkit-transition: 0.5s;
     -moz-transition: 0.5s;
     transition: 0.5s;
@@ -108,7 +110,7 @@ a:hover {
 }
 
 .introContainer {
-    font-family: "Oswald", sans-serif;
+    font-family: 'Montserrat', sans-serif;
     margin: 3.25vw 5vw;
     display: flex;
     flex-flow: column wrap;
@@ -137,7 +139,7 @@ a:hover {
     display: flex;
     flex-flow: row wrap;
     justify-content: space-around;
-    font-family: "Oswald", sans-serif;
+    font-family: 'Montserrat', sans-serif;
 }
 
 .icon {
@@ -145,7 +147,7 @@ a:hover {
 }
 
 .iconText {
-    font-size: 2.1rem;
+    font-size: 2rem;
 }
 
 .services {
@@ -153,7 +155,7 @@ a:hover {
     display: flex;
     flex-flow: row wrap;
     justify-content: center;
-    font-family: "Oswald", sans-serif;
+    font-family: 'Montserrat', sans-serif;
 }
 
 .service {
@@ -162,10 +164,13 @@ a:hover {
     background: black;
     color: white;
     text-align: center;
-    font-size: 2.1rem;
+    font-size: 1.8rem;
     text-transform: uppercase;
     -webkit-transition: 1s;
     -moz-transition: 1s;
+    box-shadow: .5rem .5rem .5rem rgba(0, 0, 0, 0.349);
+    -webkit-box-shadow: .5rem .5rem .5rem rgba(0, 0, 0, 0.349);
+    -moz-box-shadow: .5rem .5rem .5rem rgba(0, 0, 0, 0.349);
     transition: 1s;
 }
 
@@ -252,7 +257,7 @@ a:hover {
     -webkit-box-shadow: 0 0 2rem 0 rgba(0, 0, 0, 0.8);
     -moz-box-shadow: 0 0 2rem 0 rgba(0, 0, 0, 0.8);
     box-shadow: 0 0 2rem 0 rgba(0, 0, 0, 0.8);
-    font-family: "Raleway", sans-serif;
+    font-family: 'Montserrat', sans-serif;
     font-size: 1.5rem;
     color: black;
 }
@@ -308,7 +313,7 @@ a:hover {
 }
 
 .officeInfo p {
-    font-family: "Raleway", sans-serif;
+    font-family: 'Montserrat', sans-serif;
     margin-right: 1rem;
     color: #343a406e;
 }
@@ -365,7 +370,7 @@ a:hover {
     flex-grow: 1;
     padding: .4rem;
     border: 0;
-    border-radius: .3125rem;
+    border-radius: 0 0 .3125rem .3125rem;
     background-color: lightgray;
     color: #343a40;
     font-size: 1.4rem;
@@ -388,6 +393,55 @@ a:hover {
 #submitEmail:hover {
     background-color: #343a40;
     color: white;
+}
+
+.employees {
+    margin: 3.25vw 5vw;
+    text-align: center;
+}
+
+.cards {
+    display: grid;
+    margin-top: 1rem;
+    grid-template-columns: repeat(auto-fill, minmax(500px, 1fr));
+    grid-gap: 3rem;
+}
+
+.cardImage {
+    width: 100%;
+}
+
+.employeeCard {
+    font-family: 'Montserrat', sans-serif;
+    color: rgba(255, 255, 255, 0.466);
+    background-color: rgba(167, 32, 14, 0.637);
+    -webkit-box-shadow: 1rem 1rem 1rem #343a4059;
+    -moz-box-shadow: 1rem 1rem 1rem #343a40;
+    box-shadow: 1rem 1rem 1rem #343a4075;
+    -webkit-transition: 0.5s;
+    -moz-transition: 0.5s;
+    transition: 0.5s;
+}
+
+.employeeCard p {
+    box-sizing: border-box;
+    margin: .8rem;
+    font-size: 1.5rem;
+}
+
+.employeeCard:hover {
+    transform: scale(1.05);
+}
+
+#searchField {
+    box-sizing: border-box;
+    border: 0;
+    border-radius: 5px;
+    margin-bottom: 3rem;
+    padding: 1rem;
+    width: 300px;
+    color: white;
+    background-color: #A7A7A7;
 }
 
 @media only screen and (min-width: 700px) {
@@ -462,5 +516,11 @@ a:hover {
     }
     #emailText {
         width: 17.2rem;
+    }
+    #searchField {
+        margin-bottom: 1rem;
+    }
+    .cards {
+        grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
     }
 }

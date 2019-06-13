@@ -70,7 +70,7 @@ class ContentManager {
   }
 
   isIntroTextAtTop() {
-    return window.pageYOffset >= intro.offsetTop - window.pageYOffset * 0.1;
+      return window.pageYOffset >= intro.offsetTop - window.pageYOffset * 0.1;
   }
 }
 
@@ -88,10 +88,13 @@ const service = new ServiceManager();
 
 content.hideMailBox();
 setInterval(() => content.toggleMenuButton(content.isIntroTextAtTop()), 1);
+if(emailButton)
 emailButton.addEventListener("click", () => content.toggleMailBox());
+if(btnBoxClose)
 btnBoxClose.addEventListener("click", () => content.toggleModalBox());
+if(quickClose)
 quickClose.addEventListener("click", () => content.toggleModalBox());
-
+if(fiscalAdviceBox)
 fiscalAdviceBox.addEventListener("click", () =>
   service.displayDetails(
     `STEUERBERATUNG
@@ -114,6 +117,7 @@ V. Steuerliche Gestaltung bei Erbangelegenheiten.
   )
 );
 
+if(agriculturalTerminalBox)
 agriculturalTerminalBox.addEventListener("click", () =>
   service.displayDetails(
     `LANDWIRTSCHAFTLICHE BUCHSTELLE
@@ -138,6 +142,7 @@ VI. Betriebswirtschaftliche Spezialberatung
   )
 );
 
+if(consultingBox)
 consultingBox.addEventListener("click", () =>
   service.displayDetails(
     `UNTERNEHMENSBERATUNG
@@ -160,6 +165,7 @@ V. wirtschaftliche Beratung bei Kauf und Verkauf von Unternehmen
   )
 );
 
+if(annualAccountsBox)
 annualAccounts.addEventListener("click", () =>
   service.displayDetails(
     `JAHRESABSCHLUSS
@@ -178,6 +184,7 @@ III. Einnahmen-Überschussrechnungen
   )
 );
 
+if(accountingBox)
 accountingBox.addEventListener("click", () =>
   service.displayDetails(
     `BUCHHALTUNG
@@ -200,6 +207,7 @@ IV. Überprüfung der Buchführung inkl. Mitarbeiterschulung
   )
 );
 
+if(wagesBox)
 wagesBox.addEventListener("click", () =>
   service.displayDetails(
     `LÖHNE
@@ -220,6 +228,7 @@ IV. Teilnahme bei Prüfungen durch Finanzbehörden und Sozialversicherungsträge
   )
 );
 
+if(auxiliariesBox)
 auxiliariesBox.addEventListener("click", () =>
   service.displayDetails(
     `SONSTIGE BERATUNG
@@ -236,6 +245,7 @@ IV. Sanierungsberatung
   )
 );
 
+if(dataProtectionBox)
 dataProtectionBox.addEventListener("click", () =>
   service.displayDetails(
     `DATENSCHUTZ
